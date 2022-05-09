@@ -9,8 +9,12 @@ import java.util.Scanner;
 
 public class Projecte {
   
+  // declaració constants
+  
+  
   public static void main (String[] args) {
     
+    Scanner sc = new Scanner(System.in);
     
   }
 }
