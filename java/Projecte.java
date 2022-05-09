@@ -32,7 +32,14 @@ public class Projecte {
   
   public static void main (String[] args) {
     
+    // declaració i inicialització variables
     Scanner sc = new Scanner(System.in);
+    int id, places, parla, tipus, telefon;
+    boolean valid;
+    String textParla, textTipus;
+    
+    // inicialització interfície usuari
+    System.out.println("Benvingut/da al programa de gestió de famílies d'acollida.\nIntrodueix [-1] en qualsevol moment per finalitzar el programa");
     
   }
 }
