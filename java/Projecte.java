@@ -41,6 +41,27 @@ public class Projecte {
     // inicialització interfície usuari
     System.out.println("Benvingut/da al programa de gestió de famílies d'acollida.\nIntrodueix [-1] en qualsevol moment per finalitzar el programa");
     
+    // INSTRUCCIONS INICIALS
+    //
+    
+    // bucle programa
+    do {
+      valid = sc.hasNextInt(); // verifica si tipus correcte
+      if (valid) {
+        id = sc.nextInt();
+        if (id > ID_MIN && id < ID_MAX) { // verifica si dins del rang de dades
+          // SEGUIR PROGRAMA AQUÍ DINS
+          
+          
+          
+        } else {
+          valid = false; // torna a demanar entrada dades
+          sc.nextLine(); // buida buffer
+      } else {
+        sc.nextLine(); // buida buffer
+      }
+      
+    } while (!valid);
   }
 }
 
