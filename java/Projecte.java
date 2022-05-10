@@ -51,7 +51,10 @@ public class Projecte {
         id = sc.nextInt();
         if (id > ID_MIN && id < ID_MAX) { // verifica si dins del rang de dades
           // SEGUIR PROGRAMA AQUÍ DINS
-          
+          valid=true;
+
+          System.out.println("Introdueix ID");
+
           
           
         } else {
