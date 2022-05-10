@@ -58,9 +58,9 @@ public class Projecte {
           
           
         } else {
-          valid = false; // torna a demanar entrada dades
+          valid = false; // torna a demanar entrada dades si valor fora del rang
           sc.nextLine(); // buida buffer
-      } else {
+      } else { // torna a demanar entrada dada si tipus incorrecte
         sc.nextLine(); // buida buffer
       }
       
