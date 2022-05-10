@@ -43,3 +43,6 @@ public class Projecte {
     
   }
 }
+
+
+//for (i=0;i<quant_families;i++);
