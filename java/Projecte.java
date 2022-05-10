@@ -51,32 +51,37 @@ public class Projecte {
       valid = sc.hasNextInt(); // verifica si tipus correcte
       if (valid) {
         id = sc.nextInt();
-        if (id > ID_MIN && id < ID_MAX) { // verifica si dins del rang de dades
-          // SEGUIR PROGRAMA AQUÍ DINS
+        if (id >= ID_MIN && id <= ID_MAX) { // verifica si dins del rang de dades
           // valid=true; <<< no cal aquesta línia perquè en el moment en què hem verificat si és del tipus correcte aquest booleà passa a ser true
 
-          System.out.println("Introdueix ID");
+          // System.out.println("Introdueix ID"); <<< es demana en iniciar el do/while
 
           // SEGUIM PROGRAMA
+          System.out.println("Heu introduït la ID: " + id); // feedback id
+          /*
+          SEGUIR AQUÏ DINS
           
-        } else if (id == SORTIR) {
-          System.out.println("Estàs segur de voler sortir? [1] Sí / [0] No");
+          
+          */
+          
+        } else if (id == SORTIR) { // exit
+          System.out.println("Estàs segur de voler sortir? [1] Sí / [0] No"); // rutina confirmació sortida
           do {
             valid = sc.hasNextInt();
             if (valid) {
               confirmaSortida = sc.nextInt();
-              if (confirmaSortida == 1) {
+              if (confirmaSortida == 1) { // sortir
                 System.out.println("Gràcies per utilitzar el programa d'introducció de famílies");
-              } else if (confirmaSortida == 0) {
+              } else if (confirmaSortida == 0) { // no sortir, torna a l'inici
                 System.out.println("Has triat seguir utilitzant el programa");
-              } else {
+              } else { // no valor 0 o 1
                 System.out.println("No has introduït un valor vàlid (1 o 0), torneu-ho a intentar");
-                valid = false;
+                valid = false; // torna a demanar
               }
-            } else {
+            } else { // no valor int
               System.out.println("No has introduït un número, torna-ho a intentar");
-              sc.nextLine();
-              valid = false;
+              sc.nextLine(); // neteja buffer
+              valid = false; // torna a demanar
             }
           } while (!valid);
         } else {
