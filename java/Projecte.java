@@ -28,6 +28,7 @@ public class Projecte {
   public static final int TELF_MAX = 999999999;
   
   public static final int INTENTS = 3;
+  public static final int SORTIR = -1;
   
   
   public static void main (String[] args) {
@@ -35,7 +36,7 @@ public class Projecte {
     // declaració i inicialització variables
     Scanner sc = new Scanner(System.in);
     int id, places, parla, tipus, telefon;
-    boolean valid;
+    boolean valid, confirmaSortida;
     String textParla, textTipus;
     
     // inicialització interfície usuari
@@ -46,20 +47,42 @@ public class Projecte {
     
     // bucle programa
     do {
+      System.out.println("Introdueix la ID de la família:");
       valid = sc.hasNextInt(); // verifica si tipus correcte
       if (valid) {
         id = sc.nextInt();
         if (id > ID_MIN && id < ID_MAX) { // verifica si dins del rang de dades
           // SEGUIR PROGRAMA AQUÍ DINS
-          valid=true;
+          // valid=true; <<< no cal aquesta línia perquè en el moment en què hem verificat si és del tipus correcte aquest booleà passa a ser true
 
           System.out.println("Introdueix ID");
 
+          // SEGUIM PROGRAMA
           
-          
+        } else if (id == SORTIR) {
+          System.out.println("Estàs segur de voler sortir? [1] Sí / [0] No");
+          do {
+            valid = sc.hasNextInt();
+            if (valid) {
+              confirmaSortida = sc.nextInt();
+              if (confirmaSortida == 1) {
+                System.out.println("Gràcies per utilitzar el programa d'introducció de famílies");
+              } else if (confirmaSortida == 0) {
+                System.out.println("Has triat seguir utilitzant el programa");
+              } else {
+                System.out.println("No has introduït un valor vàlid (1 o 0), torneu-ho a intentar");
+                valid = false;
+              }
+            } else {
+              System.out.println("No has introduït un número, torna-ho a intentar");
+              sc.nextLine();
+              valid = false;
+            }
+          } while (!valid);
         } else {
           valid = false; // torna a demanar entrada dades si valor fora del rang
           sc.nextLine(); // buida buffer
+        }
       } else { // torna a demanar entrada dada si tipus incorrecte
         sc.nextLine(); // buida buffer
       }
