@@ -273,9 +273,23 @@ public class P3_DefezR {
 
           //  }
 
-            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
-        }
+			int vols_saber = 0;
+						System.out.println("Vols saber qui acolleix varies? 0=NO 1=SI");
+						opcioCorrecta = scan.hasNextInt();
+						vols_saber = scan.nextInt();
 
-    }
+						if (vols_saber == RESPOSTA_SI) {
 
-}
+							if (places[q] >= 2) {
+								System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t"
+										+ telefon[q]);
+							}
+
+						}
+						if (vols_saber == RESPOSTA_NO) {
+							System.out.println("Bye's");
+						}
+
+					}
+				}
+			}
