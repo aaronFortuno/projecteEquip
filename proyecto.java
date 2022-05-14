@@ -35,9 +35,8 @@ public class P3_DefezR {
     public static final int MAXIM_INTENTS = 3;
 
     public static final int MAXIM_FAM = 10;
-    public static final int RESPOSTA_SI=1;
-    public static final int RESPOSTA_NO=0;
-    
+    public static final int RESPOSTA_SI = 1;
+    public static final int RESPOSTA_NO = 0;
 
     public static void main(String[] args) {
 
@@ -236,60 +235,53 @@ public class P3_DefezR {
                     tipus_hab = SALA_COM;
                     break;
             }
-            //System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
-            //opcioCorrecta = scan.hasNextInt();
-            //if (opcioCorrecta) {
-              //  seguent = scan.nextInt();
-                //si es vol afegir mes families. 
-               // if (seguent == RESPOSTA_SI) {
-                //    System.out.print("Tipus d'allotjament?: \n "
-                          //  + "Habitació compartida (0) \n"
-                         //   + "Habitació (1)  \n"
-                         //   + "Habitació sencer (2) \n"
-                         //   + "Sala comunitaria, local habilitat (3)");
-                   // opcioCorrecta = scan.hasNextInt(); //comprovem que el valor introduit es correcte
+            System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
+            opcioCorrecta = scan.hasNextInt();
+            if (opcioCorrecta) {
+                seguent = scan.nextInt();
+                //si es vol afegir mes families
 
-                  //  if (opcioCorrecta) {
-                   //     tipusHab = scan.nextInt();
+                if (seguent == RESPOSTA_SI) {
+                    System.out.print("Tipus d'allotjament?: \n "
+                            + "Habitació compartida (0) \n"
+                            + "Habitació (1)  \n"
+                            + "Habitació sencer (2) \n"
+                            + "Sala comunitaria, local habilitat (3)");
+                    opcioCorrecta = scan.hasNextInt(); //comprovem que el valor introduit es correcte
 
-                     //   switch (tipusHab) {
-                          //  case TIPUS_HCOMPARTIDA:
-                               // tipus_hab = HAB_COM;
-                               // break;
-                          //  case TIPUS_HABITACIO:
-                               // tipus_hab = HAB;
-                              //  break;
-                           // case TIPUS_HSENCER:
-                              //  tipus_hab = HAB_SEN;
-                                //break;
-                           // case TIPUS_SCOMPARTIDA:
-                              //  tipus_hab = SALA_COM;
-                              //  break;
+                    if (opcioCorrecta) {
+                        tipusHab = scan.nextInt();
 
-                       // }
-                   // }
+                        switch (tipusHab) {
+                            case TIPUS_HCOMPARTIDA:
+                                tipus_hab = HAB_COM;
+                                break;
+                            case TIPUS_HABITACIO:
+                                tipus_hab = HAB;
+                                break;
+                            case TIPUS_HSENCER:
+                                tipus_hab = HAB_SEN;
+                                break;
+                            case TIPUS_SCOMPARTIDA:
+                                tipus_hab = SALA_COM;
+                                break;
 
-              //  }
+                        }
+                    }
 
-          //  }
+                }
 
-			int vols_saber = 0;
-						System.out.println("Vols saber qui acolleix varies? 0=NO 1=SI");
-						opcioCorrecta = scan.hasNextInt();
-						vols_saber = scan.nextInt();
+            }
 
-						if (vols_saber == RESPOSTA_SI) {
+            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+            for (q = 0; q < tipusHab; q++) {
+                if (tipus[q] == tipusHab) {
+                    System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
 
-							if (places[q] >= 2) {
-								System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t"
-										+ telefon[q]);
-							}
+                }
+            }
+        }
 
-						}
-						if (vols_saber == RESPOSTA_NO) {
-							System.out.println("Bye's");
-						}
+    }
 
-					}
-				}
-			}
+}
