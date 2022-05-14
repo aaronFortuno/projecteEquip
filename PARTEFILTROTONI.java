@@ -270,7 +270,11 @@ public class Mostra_places{
 						// }
 
 						// }
-//TONI esta es la pequeña parte que filtra los datos para mostrar los usuarios que acogen varias familis
+		//TONI
+//Esta es la pequeña parte que filtra los datos para mostrar los usuarios que acogen varias familis
+		//El problema que tiene es que si meto, pongamos por ejemplo, 10 entradas, y de las 10, 7 acogen varias familias, 
+		//el filtrado funciona perfecto y me mostrará solo las 7, pero me lo pregunta 7 veces, y cada vez me muestra la siguiente. 
+		//Es lo máximo que he conseguido, disculpad!!!
 						int vols_saber = 0;
 						System.out.println("Vols saber qui acolleix varies? 0=NO 1=SI");
 						opcioCorrecta = scan.hasNextInt();
