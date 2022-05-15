@@ -193,7 +193,7 @@ public class P3_DefezR {
             }
             //mostrem el resultat
             System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
-            System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q] + "   ");
+            System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q]);
             System.out.println("Volem afegir una altre dada 0:No / 1:Si");
             comptador++;
             q++;
@@ -272,14 +272,15 @@ public class P3_DefezR {
                 }
 
             }
-
-            
-            for (q = 0; q < tipusHab; q++) {
-                if (tipus[q] == tipusHab) {
-                   
-                    System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+            System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q]);
+            for (int b = 0; b < tipusHab; b++) {
+                if (tipus[b] == tipusHab) {
+                    
+                    System.out.println(id[b] + "\t" + places[b] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[b]);
                 }
             }
         }
 
     }
+
+}
