@@ -193,7 +193,7 @@ public class P3_DefezR {
             }
             //mostrem el resultat
             System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
-            System.out.println(id + "    " + places + "         " + res_ru + "       " + tipus_hab + "      " + telefon + "   ");
+            System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q] + "   ");
             System.out.println("Volem afegir una altre dada 0:No / 1:Si");
             comptador++;
             q++;
@@ -242,7 +242,7 @@ public class P3_DefezR {
                 //si es vol afegir mes families
 
                 if (seguent == RESPOSTA_SI) {
-                    System.out.print("Tipus d'allotjament?: \n "
+                    System.out.println("Tipus d'allotjament?: \n "
                             + "Habitació compartida (0) \n"
                             + "Habitació (1)  \n"
                             + "Habitació sencer (2) \n"
@@ -273,15 +273,13 @@ public class P3_DefezR {
 
             }
 
-            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+            
             for (q = 0; q < tipusHab; q++) {
                 if (tipus[q] == tipusHab) {
+                   
                     System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
-
                 }
             }
         }
 
     }
-
-}
