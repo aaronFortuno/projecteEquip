@@ -336,7 +336,17 @@ public class P3_DefezR {
         }
         
         // PART TONI ampliació 2
-        
+                System.out.println("Vols saber qui acolleix varies? 0=NO 1=SI");
+        int vols_saber = 0;
+        opcioCorrecta = scan.hasNextInt();
+        vols_saber = scan.nextInt();
+        if (places[q] >= 2 && vols_saber == RESPOSTA_SI) {
+            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t"
+                    + telefon[q]);
+        }
+        if (vols_saber == RESPOSTA_NO) {
+            System.out.println("Bye's");
+        }
         
         // PART OSCAR ampliació 3
         System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
