@@ -79,6 +79,8 @@ public class P3_DefezR {
                         i = MAXIM_INTENTS;
                     }
 
+                } else {
+                  scan.nextLine();
                 }
 
             } while (i < MAXIM_INTENTS);
@@ -98,6 +100,8 @@ public class P3_DefezR {
                         } else {
                             i = MAXIM_INTENTS;
                         }
+                    } else {
+                      scan.nextLine();
                     }
 
                 } while (i < MAXIM_INTENTS);
@@ -127,6 +131,8 @@ public class P3_DefezR {
                             i = MAXIM_INTENTS;
 
                         }
+                    } else {
+                      scan.nextLine();
                     }
 
                 } while (i < MAXIM_INTENTS);
@@ -165,6 +171,8 @@ public class P3_DefezR {
                             i = MAXIM_INTENTS;
                         }
 
+                    } else {
+                      scan.nextLine();
                     }
 
                 } while (i < MAXIM_INTENTS);
@@ -184,6 +192,8 @@ public class P3_DefezR {
                             } else {
                                 i = MAXIM_INTENTS;
                             }
+                        } else {
+                          scan.nextLine();
                         }
 
                     } while (i < MAXIM_INTENTS);
@@ -211,32 +221,43 @@ public class P3_DefezR {
         } while (introduirMes);
         System.out.println("s´ha introduit " + comptador + " registre familiars");
         System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
+        
         for (q = 0; q < comptador; q++) {
-            switch (parlaRusUcrania[q]) {
+          switch (parlaRusUcrania[q]) {
                 case PARLARU_SI:
                     res_ru = RES_SI;
                     break;
                 case PARLARU_NO:
                     res_ru = RES_NO;
                     break;
-
-            }
-            switch (tipus[q]) {
-                case TIPUS_HCOMPARTIDA:
-                    tipus_hab = HAB_COM;
-                    break;
-                case TIPUS_HABITACIO:
-                    tipus_hab = HAB;
-                    break;
-                case TIPUS_HSENCER:
-                    tipus_hab = HAB_SEN;
-                    break;
-                case TIPUS_SCOMPARTIDA:
-                    tipus_hab = SALA_COM;
-                    break;
-            }
-            System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
-            opcioCorrecta = scan.hasNextInt();
+          }
+          switch (tipus[q]) {
+              case TIPUS_HCOMPARTIDA:
+                  tipus_hab = HAB_COM;
+                  break;
+              case TIPUS_HABITACIO:
+                  tipus_hab = HAB;
+                  break;
+              case TIPUS_HSENCER:
+                  tipus_hab = HAB_SEN;
+                  break;
+              case TIPUS_SCOMPARTIDA:
+                  tipus_hab = SALA_COM;
+                  break;
+          }
+          System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+        }
+        
+        // PART TONI ampliació 1
+        
+        
+        // PART AARÓN ampliació 2
+        
+        
+        
+        // PART OSCAR ampliació 3
+        System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
+        opcioCorrecta = scan.hasNextInt();
             if (opcioCorrecta) {
                 seguent = scan.nextInt();
                 //si es vol afegir mes families
@@ -272,15 +293,37 @@ public class P3_DefezR {
                 }
 
             }
-            System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q]);
-            for (int b = 0; b < tipusHab; b++) {
-                if (tipus[b] == tipusHab) {
-                    
-                    System.out.println(id[b] + "\t" + places[b] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[b]);
-                }
+        
+        
+        for (q = 0; q < comptador; q++) {
+            switch (parlaRusUcrania[q]) {
+                case PARLARU_SI:
+                    res_ru = RES_SI;
+                    break;
+                case PARLARU_NO:
+                    res_ru = RES_NO;
+                    break;
+
+            }
+            switch (tipus[q]) {
+                case TIPUS_HCOMPARTIDA:
+                    tipus_hab = HAB_COM;
+                    break;
+                case TIPUS_HABITACIO:
+                    tipus_hab = HAB;
+                    break;
+                case TIPUS_HSENCER:
+                    tipus_hab = HAB_SEN;
+                    break;
+                case TIPUS_SCOMPARTIDA:
+                    tipus_hab = SALA_COM;
+                    break;
+            }
+            
+            if (tipus[q] == tipusHab) {
+              System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
             }
         }
 
     }
-
 }
