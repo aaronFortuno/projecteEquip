@@ -417,23 +417,28 @@ public class P3_DefezR {
         } else {
             scan.nextLine();
         }
-        int suma = 0;//Part 3 Toni; Resum estadistic
-        System.out.println("Vols un resum? 0=NO 1=SI");
-        opcioCorrecta = scan.hasNextInt();
-        vols_saber = scan.nextInt();
-        for (int j = 0; j < places.length; j++) {
-            suma = suma + places[j];
-        }
-        if (vols_saber == RESPOSTA_SI) {
-            System.out.println("Numero total de places = " + suma);
-            System.out.println("Parla Rus o Ucrania = " + cuentarusos);
-            System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
-            System.out.println("Total Habitacions Normals = " + cuentahab);
-            System.out.println("Total Habitacions Senceres = " + cuentahabsen);
-            System.out.println("Total Locals Habilitats = " + cuentalocal);
-        }
-        if (vols_saber == RESPOSTA_NO) {
-            System.out.println("Bye's");
-        }
-    }
-}
+        boolean avkpacha;// Part 3 Toni; Resum estadistic
+		int suma = 0;
+		System.out.println("Vols un resum? 0=NO 1=SI");
+
+		for (int j = 0; j < places.length; j++) {
+			suma = suma + places[j];
+		}
+		if (avkpacha = scan.hasNextInt()) {
+			vols_saber = scan.nextInt();
+		}
+		if (vols_saber == RESPOSTA_SI) {
+
+			System.out.println("Numero total de places = " + suma);
+			System.out.println("Parla Rus o Ucrania = " + cuentarusos);
+			System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
+			System.out.println("Total Habitacions Normals = " + cuentahab);
+			System.out.println("Total Habitacions Senceres = " + cuentahabsen);
+			System.out.println("Total Locals Habilitats = " + cuentalocal);
+		} else {
+
+			scan.nextLine();
+			System.out.println("Bye's");
+
+		}
+	}
