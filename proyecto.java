@@ -408,6 +408,7 @@ public class P3_DefezR {
                         }
 
                         if (tipus[q] == tipusHab) {
+			    System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
                             System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
                         }
                     }
