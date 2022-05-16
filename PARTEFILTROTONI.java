@@ -10,9 +10,9 @@ import java.util.Scanner;
  *
  * @author oscar
  */
-public class Mostra_places{
+public class p03_compis {
 
-    public static final int ID_MINIM = 10;
+        public static final int ID_MINIM = 10;
     public static final int ID_MAXIM = 999;
     public static final int PLACES_MINIM = 1;
     public static final int PLACES_MAXIM = 99;
@@ -35,9 +35,8 @@ public class Mostra_places{
     public static final int MAXIM_INTENTS = 3;
 
     public static final int MAXIM_FAM = 10;
-    public static final int RESPOSTA_SI=1;
-    public static final int RESPOSTA_NO=0;
-    
+    public static final int RESPOSTA_SI = 1;
+    public static final int RESPOSTA_NO = 0;
 
     public static void main(String[] args) {
 
@@ -53,6 +52,13 @@ public class Mostra_places{
         int comptador = 0;
         int q = 0; //q es el comptador de posiciones.
         int tipusHab = 0;
+        int aux; // per al reordenament de l'array
+        int vols_saber = 0;//pregunta resum final
+        int cuentarusos = 0;
+        int cuentahabcomp = 0;
+        int cuentahab = 0;
+        int cuentahabsen = 0;
+        int cuentalocal = 0;
 
         Scanner scan = new Scanner(System.in); //aquesta linea es necessaria per la lectura de dades.
 
@@ -80,6 +86,8 @@ public class Mostra_places{
                         i = MAXIM_INTENTS;
                     }
 
+                } else {
+                    scan.nextLine();
                 }
 
             } while (i < MAXIM_INTENTS);
@@ -99,6 +107,8 @@ public class Mostra_places{
                         } else {
                             i = MAXIM_INTENTS;
                         }
+                    } else {
+                        scan.nextLine();
                     }
 
                 } while (i < MAXIM_INTENTS);
@@ -113,6 +123,7 @@ public class Mostra_places{
                         switch (parlaRusUcrania[q]) {
                             case PARLARU_SI:
                                 res_ru = RES_SI;
+                                cuentarusos++;
                                 break;
                             case PARLARU_NO:
                                 res_ru = RES_NO;
@@ -128,6 +139,8 @@ public class Mostra_places{
                             i = MAXIM_INTENTS;
 
                         }
+                    } else {
+                        scan.nextLine();
                     }
 
                 } while (i < MAXIM_INTENTS);
@@ -147,15 +160,19 @@ public class Mostra_places{
                         switch (tipus[q]) {
                             case TIPUS_HCOMPARTIDA:
                                 tipus_hab = HAB_COM;
+                                cuentahabcomp++;
                                 break;
                             case TIPUS_HABITACIO:
                                 tipus_hab = HAB;
+                                cuentahab++;
                                 break;
                             case TIPUS_HSENCER:
                                 tipus_hab = HAB_SEN;
+                                cuentahabsen++;
                                 break;
                             case TIPUS_SCOMPARTIDA:
                                 tipus_hab = SALA_COM;
+                                cuentalocal++;
                                 break;
                         }
                         if ((tipus[q] < TIPUS_MINIM || tipus[q] > TIPUS_MAXIM)) {
@@ -166,6 +183,8 @@ public class Mostra_places{
                             i = MAXIM_INTENTS;
                         }
 
+                    } else {
+                        scan.nextLine();
                     }
 
                 } while (i < MAXIM_INTENTS);
@@ -185,6 +204,8 @@ public class Mostra_places{
                             } else {
                                 i = MAXIM_INTENTS;
                             }
+                        } else {
+                            scan.nextLine();
                         }
 
                     } while (i < MAXIM_INTENTS);
@@ -194,7 +215,7 @@ public class Mostra_places{
             }
             //mostrem el resultat
             System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
-            System.out.println(id + "    " + places + "         " + res_ru + "       " + tipus_hab + "      " + telefon + "   ");
+            System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q]);
             System.out.println("Volem afegir una altre dada 0:No / 1:Si");
             comptador++;
             q++;
@@ -212,6 +233,7 @@ public class Mostra_places{
         } while (introduirMes);
         System.out.println("s´ha introduit " + comptador + " registre familiars");
         System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
+
         for (q = 0; q < comptador; q++) {
             switch (parlaRusUcrania[q]) {
                 case PARLARU_SI:
@@ -220,7 +242,6 @@ public class Mostra_places{
                 case PARLARU_NO:
                     res_ru = RES_NO;
                     break;
-
             }
             switch (tipus[q]) {
                 case TIPUS_HCOMPARTIDA:
@@ -236,63 +257,190 @@ public class Mostra_places{
                     tipus_hab = SALA_COM;
                     break;
             }
-            //System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
-            //opcioCorrecta = scan.hasNextInt();
-            //if (opcioCorrecta) {
-              //  seguent = scan.nextInt();
-                //si es vol afegir mes families. 
-               // if (seguent == RESPOSTA_SI) {
-                //    System.out.print("Tipus d'allotjament?: \n "
-                          //  + "Habitació compartida (0) \n"
-                         //   + "Habitació (1)  \n"
-                         //   + "Habitació sencer (2) \n"
-                         //   + "Sala comunitaria, local habilitat (3)");
-                   // opcioCorrecta = scan.hasNextInt(); //comprovem que el valor introduit es correcte
+            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+        }
 
-                  //  if (opcioCorrecta) {
-                   //     tipusHab = scan.nextInt();
+        // PART AARÓN ampliació 1
+        System.out.println("Vols consultar per número de places? (sí: 1 / no: 0");
+        opcioCorrecta = scan.hasNextInt();
+        if (opcioCorrecta) { // comprova si tipus de dada correcta
+            seguent = scan.nextInt();
+            if (seguent == RESPOSTA_SI) { // comprova si ha introduït "1"
+                System.out.println("Quantes places necessites?");
+                opcioCorrecta = scan.hasNextInt(); // comprova si tipus de dada correcta
+                if (opcioCorrecta) {
+                    seguent = scan.nextInt();
+                    if (seguent >= 1) {
 
-                     //   switch (tipusHab) {
-                          //  case TIPUS_HCOMPARTIDA:
-                               // tipus_hab = HAB_COM;
-                               // break;
-                          //  case TIPUS_HABITACIO:
-                               // tipus_hab = HAB;
-                              //  break;
-                           // case TIPUS_HSENCER:
-                              //  tipus_hab = HAB_SEN;
-                                //break;
-                           // case TIPUS_SCOMPARTIDA:
-                              //  tipus_hab = SALA_COM;
-                              //  break;
+                        // ordenació arrays
+                        for (int b = 0; b < comptador; b++) {
 
-                       // }
-						// }
+                            for (int c = b; c < comptador - 1; c++) {
 
-						// }
-		//TONI
-//Esta es la pequeña parte que filtra los datos para mostrar los usuarios que acogen varias familis
-		//El problema que tiene es que si meto, pongamos por ejemplo, 10 entradas, y de las 10, 7 acogen varias familias, 
-		//el filtrado funciona perfecto y me mostrará solo las 7, pero me lo pregunta 7 veces, y cada vez me muestra la siguiente. 
-		//Es lo máximo que he conseguido, disculpad!!!
-						int vols_saber = 0;
-						System.out.println("Vols saber qui acolleix varies? 0=NO 1=SI");
-						opcioCorrecta = scan.hasNextInt();
-						vols_saber = scan.nextInt();
+                                if (places[b] >= places[c]) {
 
-						//if (vols_saber == RESPOSTA_SI) {
+                                    // intercanvi array id
+                                    aux = id[b];
+                                    id[b] = id[c];
+                                    id[c] = aux;
 
-							if (places[q] >= 2 && vols_saber == RESPOSTA_SI) {
-								System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t"
-										+ telefon[q]);
-							}
+                                    // intercanvi array places
+                                    aux = places[b];
+                                    places[b] = places[c];
+                                    places[c] = aux;
 
-						
-						if (vols_saber == RESPOSTA_NO) {
-							System.out.println("Bye's");
-						}
+                                    // intercanvi array llengua
+                                    aux = parlaRusUcrania[b];
+                                    parlaRusUcrania[b] = parlaRusUcrania[c];
+                                    parlaRusUcrania[c] = aux;
 
-					}
-				}
-			}
-//TONI aqui acabaría la filtrasion. 
+                                    // intercanvi array tipus
+                                    aux = tipus[b];
+                                    tipus[b] = tipus[c];
+                                    tipus[c] = aux;
+
+                                    // intercanvi array telefon
+                                    aux = telefon[b];
+                                    telefon[b] = telefon[c];
+                                    telefon[c] = aux;
+                                }
+                            }
+                        }
+
+                        System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
+                        for (q = 0; q < comptador; q++) {
+                            if (places[q] >= seguent) {
+                                switch (parlaRusUcrania[q]) {
+                                    case PARLARU_SI:
+                                        res_ru = RES_SI;
+                                        break;
+                                    case PARLARU_NO:
+                                        res_ru = RES_NO;
+                                        break;
+                                }
+
+                                switch (tipus[q]) {
+                                    case TIPUS_HCOMPARTIDA:
+                                        tipus_hab = HAB_COM;
+                                        break;
+                                    case TIPUS_HABITACIO:
+                                        tipus_hab = HAB;
+                                        break;
+                                    case TIPUS_HSENCER:
+                                        tipus_hab = HAB_SEN;
+                                        break;
+                                    case TIPUS_SCOMPARTIDA:
+                                        tipus_hab = SALA_COM;
+                                        break;
+                                }
+
+                                System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]); // mostra només si el nombre és igual o superior al demanat
+                            }
+                        }
+                    }
+                } else {
+                    scan.nextLine();
+                }
+            }
+        } else {
+            scan.nextLine();
+        }
+
+      
+        // PART OSCAR ampliació 3
+        System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
+        opcioCorrecta = scan.hasNextInt();
+        if (opcioCorrecta) {
+            seguent = scan.nextInt();
+
+            if (seguent == RESPOSTA_SI) {
+                System.out.println("Tipus d'allotjament?: \n "
+                        + "Habitació compartida (0) \n"
+                        + "Habitació (1)  \n"
+                        + "Habitació sencer (2) \n"
+                        + "Sala comunitaria, local habilitat (3)");
+                opcioCorrecta = scan.hasNextInt(); //comprovem que el valor introduit es correcte
+
+                if (opcioCorrecta) {
+                    tipusHab = scan.nextInt();
+
+                    switch (tipusHab) {
+                        case TIPUS_HCOMPARTIDA:
+                            tipus_hab = HAB_COM;
+                            break;
+                        case TIPUS_HABITACIO:
+                            tipus_hab = HAB;
+                            break;
+                        case TIPUS_HSENCER:
+                            tipus_hab = HAB_SEN;
+                            break;
+                        case TIPUS_SCOMPARTIDA:
+                            tipus_hab = SALA_COM;
+                            break;
+
+                    }
+
+                    for (q = 0; q < comptador; q++) {
+                        switch (parlaRusUcrania[q]) {
+                            case PARLARU_SI:
+                                res_ru = RES_SI;
+                                break;
+                            case PARLARU_NO:
+                                res_ru = RES_NO;
+                                break;
+
+                        }
+                        switch (tipus[q]) {
+                            case TIPUS_HCOMPARTIDA:
+                                tipus_hab = HAB_COM;
+                                break;
+                            case TIPUS_HABITACIO:
+                                tipus_hab = HAB;
+                                break;
+                            case TIPUS_HSENCER:
+                                tipus_hab = HAB_SEN;
+                                break;
+                            case TIPUS_SCOMPARTIDA:
+                                tipus_hab = SALA_COM;
+                                break;
+                        }
+
+                        if (tipus[q] == tipusHab) {
+                            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+                        }
+                    }
+                } else {
+                    scan.nextLine();
+                }
+            }
+        } else {
+            scan.nextLine();
+        }
+        boolean avkpacha;//Part 3 Toni; Resum estadistic
+        int suma = 0;
+        System.out.println("Vols un resum? 0=NO 1=SI");
+        avkpacha = scan.hasNextInt();
+        vols_saber = scan.nextInt();
+        for (int j = 0; j < places.length; j++) {
+            suma = suma + places[j];
+        }
+        
+        if (avkpacha =true && vols_saber == RESPOSTA_SI) {
+        	
+            System.out.println("Numero total de places = " + suma);
+            System.out.println("Parla Rus o Ucrania = " + cuentarusos);
+            System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
+            System.out.println("Total Habitacions Normals = " + cuentahab);
+            System.out.println("Total Habitacions Senceres = " + cuentahabsen);
+            System.out.println("Total Locals Habilitats = " + cuentalocal);
+        }
+        else if (avkpacha=false ||vols_saber == RESPOSTA_NO) {
+        	
+        	scan.nextLine();
+            System.out.println("Bye's");
+            
+        }else {
+        	scan.nextLine();
+        }
+    }
+}
