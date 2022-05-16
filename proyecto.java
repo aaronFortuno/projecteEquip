@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author oscar
+ * @author oscar, aaron, toni
  */
 public class P3_DefezR {
 
@@ -26,10 +26,10 @@ public class P3_DefezR {
     public static final int TIPUS_MAXIM = 3;
     public static final int TELEFON_MINIM = 111111111;
     public static final int TELEFON_MAXIM = 999999999;
-    public static final String HAB_COM = "Habitacio compartida";
-    public static final String HAB_SEN = "Habitacio sencer";
-    public static final String HAB = "Habitacio";
-    public static final String SALA_COM = "Sala comunitaria, local habilitat";
+    public static final String HAB_COM = "habitació compartida\t";
+    public static final String HAB_SEN = "habitatge sencer\t";
+    public static final String HAB = "habitació\t\t";
+    public static final String SALA_COM = "sala comunit., local habilitat";
     public static final String RES_SI = "Si";
     public static final String RES_NO = "No";
     public static final int MAXIM_INTENTS = 3;
@@ -71,10 +71,11 @@ public class P3_DefezR {
             i=0;
 
             do {
+              i = 0;
                 introduirMes = false;//per defecte, no volem introduir més 
                 //si no ens indiquem el contrari
                 //llegim i mirem si es correcta
-                System.out.print("Entreu el ID:  ");
+                System.out.print("Entreu l'ID:  ");
                 opcioCorrecta = scan.hasNextInt();//per analitzar tipus de dada
                 if (opcioCorrecta) {
                     //llegim les dades
@@ -82,7 +83,7 @@ public class P3_DefezR {
                     if ((id[q] < ID_MINIM) || (id[q] > ID_MAXIM)) {
                         opcioCorrecta = false;
                         i++;
-                        System.out.println("Número de id erroni");
+                        System.out.println("Número d'ID erroni");
                     } else {
                         i = MAXIM_INTENTS;
                     }
@@ -96,7 +97,7 @@ public class P3_DefezR {
             if (opcioCorrecta) {
                 i = 0;
                 do {
-                    System.out.print("Numero de places disponibles?");
+                    System.out.print("Numero de places disponibles:  ");
                     opcioCorrecta = scan.hasNextInt();
                     if (opcioCorrecta) {
 
@@ -117,7 +118,7 @@ public class P3_DefezR {
             if (opcioCorrecta) {
                 i = 0;
                 do {
-                    System.out.print("Parleu rus o ucraïnes (0:no / 1:si)?: ");
+                    System.out.print("Parleu rus o ucraïnes (0:no / 1:si)?:  ");
                     opcioCorrecta = scan.hasNextInt();
                     if (opcioCorrecta) {
                         parlaRusUcrania[q] = scan.nextInt(); //Llegim dades
@@ -153,7 +154,7 @@ public class P3_DefezR {
                             + "Habitació compartida (0) \n"
                             + "Habitació (1)  \n"
                             + "Habitació sencer (2) \n"
-                            + "Sala comunitaria, local habilitat (3)");
+                            + "Sala comunitaria, local habilitat (3)  ");
                     opcioCorrecta = scan.hasNextInt();
 
                     if (opcioCorrecta) {
@@ -194,13 +195,13 @@ public class P3_DefezR {
 
                     i = 0;
                     do {
-                        System.out.print("telèfon de contacte?");
+                        System.out.print("Telèfon de contacte:  ");
                         opcioCorrecta = scan.hasNextInt();
                         if (opcioCorrecta) {
                             telefon[q] = scan.nextInt();
                             if ((telefon[q] < TELEFON_MINIM) || telefon[q] > TELEFON_MAXIM) {
                                 opcioCorrecta = false;
-                                System.out.println("Numero de telefon erroni");
+                                System.out.println("Número de telèfon erroni");
                                 i++;
                             } else {
                                 i = MAXIM_INTENTS;
@@ -215,9 +216,9 @@ public class P3_DefezR {
 
             }
             //mostrem el resultat
-            System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
+            System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
             System.out.println(id[q] + "    " + places[q] + "         " + res_ru + "       " + tipus_hab + "      " + telefon[q]);
-            System.out.println("Volem afegir una altre dada 0:No / 1:Si");
+            System.out.println("Voleu afegir una altre dada? 0:No / 1:Si");
             comptador++;
             q++;
             opcioCorrecta = scan.hasNextInt();
@@ -232,8 +233,8 @@ public class P3_DefezR {
             }
 
         } while (introduirMes);
-        System.out.println("s´ha introduit " + comptador + " registre familiars");
-        System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
+        System.out.println("Heu introduït " + comptador + " registres familiars");
+        System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
 
         for (q = 0; q < comptador; q++) {
             switch (parlaRusUcrania[q]) {
@@ -258,7 +259,7 @@ public class P3_DefezR {
                     tipus_hab = SALA_COM;
                     break;
             }
-            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t\t\t" + tipus_hab + "\t" + telefon[q]);
         }
 
         // PART AARÓN ampliació 1
@@ -276,9 +277,9 @@ public class P3_DefezR {
                         // ordenació arrays
                         for (int b = 0; b < comptador; b++) {
 
-                            for (int c = b; c < comptador - 1; c++) {
+                            for (int c = 0; c < comptador - 1; c++) {
 
-                                if (places[b] >= places[c]) {
+                                if (places[b] < places[c]) {
 
                                     // intercanvi array id
                                     aux = id[b];
@@ -308,7 +309,7 @@ public class P3_DefezR {
                             }
                         }
 
-                        System.out.println("\nID    places   rus/ucraines   \t\ttipus       \ttelèfon");
+                        System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
                         for (q = 0; q < comptador; q++) {
                             if (places[q] >= seguent) {
                                 switch (parlaRusUcrania[q]) {
@@ -428,7 +429,7 @@ public class P3_DefezR {
 			vols_saber = scan.nextInt();
 		}
 		if (vols_saber == RESPOSTA_SI) {
-
+                        System.out.println("Número de famílies que acullen = " + comptador);
 			System.out.println("Numero total de places = " + suma);
 			System.out.println("Parla Rus o Ucrania = " + cuentarusos);
 			System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
@@ -438,7 +439,7 @@ public class P3_DefezR {
 		} else {
 
 			scan.nextLine();
-			System.out.println("Bye's");
+			System.out.println("Adeu!");
 
 		}
 	}
