@@ -68,6 +68,7 @@ public class P3_DefezR {
         boolean introduirMes;
         do {
             introduirMes = false;
+            i=0;
 
             do {
                 introduirMes = false;//per defecte, no volem introduir més 
