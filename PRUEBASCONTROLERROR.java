@@ -416,31 +416,28 @@ public class p03_compis {
         } else {
             scan.nextLine();
         }
-        boolean avkpacha;//Part 3 Toni; Resum estadistic
-        int suma = 0;
-        System.out.println("Vols un resum? 0=NO 1=SI");
-        avkpacha = scan.hasNextInt();
-        vols_saber = scan.nextInt();
-        for (int j = 0; j < places.length; j++) {
-            suma = suma + places[j];
-        }
-        
-        if (avkpacha =true && vols_saber == RESPOSTA_SI) {
-        	
-            System.out.println("Numero total de places = " + suma);
-            System.out.println("Parla Rus o Ucrania = " + cuentarusos);
-            System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
-            System.out.println("Total Habitacions Normals = " + cuentahab);
-            System.out.println("Total Habitacions Senceres = " + cuentahabsen);
-            System.out.println("Total Locals Habilitats = " + cuentalocal);
-        }
-        else if (avkpacha=false ||vols_saber == RESPOSTA_NO) {
-        	
-        	scan.nextLine();
-            System.out.println("Bye's");
-            
-        }else {
-        	scan.nextLine();
-        }
-    }
-}
+        boolean avkpacha;// Part 3 Toni; Resum estadistic
+		int suma = 0;
+		System.out.println("Vols un resum? 0=NO 1=SI");
+
+		for (int j = 0; j < places.length; j++) {
+			suma = suma + places[j];
+		}
+		if (avkpacha = scan.hasNextInt()) {
+			vols_saber = scan.nextInt();
+		}
+		if (vols_saber == RESPOSTA_SI) {
+
+			System.out.println("Numero total de places = " + suma);
+			System.out.println("Parla Rus o Ucrania = " + cuentarusos);
+			System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
+			System.out.println("Total Habitacions Normals = " + cuentahab);
+			System.out.println("Total Habitacions Senceres = " + cuentahabsen);
+			System.out.println("Total Locals Habilitats = " + cuentalocal);
+		} else {
+
+			scan.nextLine();
+			System.out.println("Bye's");
+
+		}
+	}
