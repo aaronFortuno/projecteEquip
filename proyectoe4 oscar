@@ -71,7 +71,7 @@ public class P3_DefezR {
         boolean introduirMes;
         do {
             introduirMes = false;
-            //i = 0;
+            
             do {
                 introduirMes = false;//per defecte, no volem introduir més 
                 //si no ens indiquem el contrari
@@ -89,7 +89,7 @@ public class P3_DefezR {
                     }
 
                 } else {
-                    System.out.println("Error té que ser un numero");
+                    System.out.println("Error te que ser un número");
                     scan.next();
                 }
                 i++;
@@ -110,7 +110,7 @@ public class P3_DefezR {
                             System.out.println("Numero de places erroni");
                         }
                     } else {
-                        System.out.println("Numerp de places incorrecte.");
+                        System.out.println("Numero de places incorrecte.");
                         scan.next();
                     }
                     i++;
@@ -225,7 +225,6 @@ public class P3_DefezR {
             }
 
             System.out.println("Voleu afegir una altre dada? 0:No / 1:Si");
-            //q++;
             opcioCorrecta = scan.hasNextInt();
             if (opcioCorrecta) {
                 seguent = scan.nextInt();
@@ -455,3 +454,4 @@ public class P3_DefezR {
     }
 
 }
+
