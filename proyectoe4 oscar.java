@@ -27,10 +27,10 @@ public class P3_DefezR {
     public static final int TELEFON_MINIM = 111111111;
     public static final int TELEFON_MAXIM = 999999999;
     public static final String HAB_COM = "Habitacio compartida";
-    public static final String HAB_SEN = "Habitacio sencer";
+    public static final String HAB_SEN = "Habitacio sencera";
     public static final String HAB = "Habitacio";
-    public static final String SALA_COM = "Sala comunitaria, local habilitat";
-    public static final String RES_SI = "Si";
+    public static final String SALA_COM = "Sala comunitària, local habilitat";
+    public static final String RES_SI = "Sí";
     public static final String RES_NO = "No";
     public static final int MAXIM_INTENTS = 3;
 
@@ -89,7 +89,7 @@ public class P3_DefezR {
                     }
 
                 } else {
-                    System.out.println("Error te que ser un número");
+                    System.out.println("Error: ha de ser un número");
                     scan.next();
                 }
                 i++;
@@ -99,7 +99,7 @@ public class P3_DefezR {
             if (opcioCorrecta) {
                 i = 0;
                 do {
-                    System.out.print("Numero de places disponibles:  ");
+                    System.out.print("Número de places disponibles:  ");
                     opcioCorrecta = scan.hasNextInt();
                     if (opcioCorrecta) {
 
@@ -107,10 +107,10 @@ public class P3_DefezR {
                         if ((places[q] < PLACES_MINIM) || places[q] > PLACES_MAXIM) {
                             //i++;
                             opcioCorrecta = false;
-                            System.out.println("Numero de places erroni");
+                            System.out.println("Número de places erroni");
                         }
                     } else {
-                        System.out.println("Numero de places incorrecte.");
+                        System.out.println("Número de places incorrecte.");
                         scan.next();
                     }
                     i++;
@@ -119,7 +119,7 @@ public class P3_DefezR {
             if (opcioCorrecta) {
                 i = 0;
                 do {
-                    System.out.print("Parleu rus o ucraïnes (0:no / 1:si)?:  ");
+                    System.out.print("Parleu rus o ucraïnès (0:no / 1:sí)?:  ");
                     opcioCorrecta = scan.hasNextInt();
                     if (opcioCorrecta) {
                         parlaRusUcrania[q] = scan.nextInt(); //Llegim dades
@@ -140,7 +140,7 @@ public class P3_DefezR {
 
                         }
                     } else {
-                        System.out.println("La informacio no es correcta.");
+                        System.out.println("La informació no és correcta.");
                         scan.nextLine();
                     }
                     i++;
@@ -150,11 +150,11 @@ public class P3_DefezR {
             if (opcioCorrecta) {
                 i = 0;
                 do {
-                    System.out.print("Tipus d'allotjament?: \n "
+                    System.out.print("Tipus d'allotjament: \n "
                             + "Habitació compartida (0) \n"
                             + "Habitació (1)  \n"
-                            + "Habitació sencer (2) \n"
-                            + "Sala comunitaria, local habilitat (3)  ");
+                            + "Habitació sencera (2) \n"
+                            + "Sala comunitària, local habilitat (3)  ");
                     opcioCorrecta = scan.hasNextInt();
 
                     if (opcioCorrecta) {
@@ -366,8 +366,8 @@ public class P3_DefezR {
                 System.out.println("Tipus d'allotjament?: \n "
                         + "Habitació compartida (0) \n"
                         + "Habitació (1)  \n"
-                        + "Habitació sencer (2) \n"
-                        + "Sala comunitaria, local habilitat (3)");
+                        + "Habitació sencera (2) \n"
+                        + "Sala comunitària, local habilitat (3)");
                 opcioCorrecta = scan.hasNextInt(); //comprovem que el valor introduit es correcte
 
                 if (opcioCorrecta) {
@@ -438,8 +438,8 @@ public class P3_DefezR {
         }
         if (vols_saber == RESPOSTA_SI) {
             System.out.println("Número de famílies que acullen = " + comptador);
-            System.out.println("Numero total de places = " + suma);
-            System.out.println("Parla Rus o Ucrania = " + cuentarusos);
+            System.out.println("Número total de places = " + suma);
+            System.out.println("Parla Rus o Ucraïnès = " + cuentarusos);
             System.out.println("Total Habitacions Compartides = " + cuentahabcomp);
             System.out.println("Total Habitacions Normals = " + cuentahab);
             System.out.println("Total Habitacions Senceres = " + cuentahabsen);
