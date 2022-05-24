@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Projecte3;
+package Projecte4;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 
 // programa per a la gestió de famílies d'acollida
-public class P3_FortunoR {
+public class P4_FortunoR {
     
   // definició de constants
   public static final int ID_MIN = 10;
