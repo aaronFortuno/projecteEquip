@@ -481,7 +481,7 @@ public class p04_projecteFinal2 {
 								}
 								System.out.println(families[q][0] + "\t" + families[q][1] + "\t" + res_ru + "\t"
 										+ tipus_hab + "\t" + families[q][4]);
-							}
+							}//final Bombolla Toni
 						}
 
 					}
@@ -492,8 +492,7 @@ public class p04_projecteFinal2 {
 		} else {
 			scan.nextLine();
 		}
-		// Acaba reordenacio Toni.
-
+		
 		boolean avkpacha;// Part 3 Toni; Resum estadistic
 		int suma = 0;
 		System.out.println("Vols un resum? 0=NO 1=SI");
