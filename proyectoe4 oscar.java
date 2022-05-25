@@ -321,7 +321,7 @@ public class P4_e2_FortunoR {
 
                         System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
                         for (q = 0; q < comptador; q++) {
-                            if (families[q][2] >= seguent) {
+                            if (families[q][1] >= seguent) {
                                 switch (families[q][2]) {
                                     case PARLARU_SI:
                                         res_ru = RES_SI;
@@ -357,7 +357,7 @@ public class P4_e2_FortunoR {
         } else {
             scan.next();
         }
-/*
+
         // PART OSCAR ampliació 3
         System.out.println("Vols consultar per tipus d'allotjament(si: 1/no:0)");
         opcioCorrecta = scan.hasNextInt();
@@ -375,6 +375,7 @@ public class P4_e2_FortunoR {
                 if (opcioCorrecta) {
                     tipusHab = scan.nextInt();
 
+                    System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
                     switch (tipusHab) {
                         case TIPUS_HCOMPARTIDA:
                             tipus_hab = HAB_COM;
@@ -392,7 +393,7 @@ public class P4_e2_FortunoR {
                     }
 
                     for (q = 0; q < comptador; q++) {
-                        switch (parlaRusUcrania[q]) {
+                        switch (families[q][2]) {
                             case PARLARU_SI:
                                 res_ru = RES_SI;
                                 break;
@@ -401,7 +402,7 @@ public class P4_e2_FortunoR {
                                 break;
 
                         }
-                        switch (tipus[q]) {
+                        switch (families[q][3]) {
                             case TIPUS_HCOMPARTIDA:
                                 tipus_hab = HAB_COM;
                                 break;
@@ -416,9 +417,9 @@ public class P4_e2_FortunoR {
                                 break;
                         }
 
-                        if (tipus[q] == tipusHab) {
-                            System.out.println("\nID\tPlaces\tRus/Ucraïnès\tTipus\t\t\t\tTelèfon");
-                            System.out.println(id[q] + "\t" + places[q] + "\t" + res_ru + "\t" + tipus_hab + "\t" + telefon[q]);
+                        if (families[q][3] == tipusHab) {
+                            
+                            System.out.println(families[q][0] + "\t" + families[q][1] + "\t" + res_ru + "\t" + tipus_hab + "\t" + families[q][4]);
                         }
                     }
                 } else {
@@ -428,12 +429,14 @@ public class P4_e2_FortunoR {
         } else {
             scan.nextLine();
         }
+        
+        
         boolean avkpacha;// Part 3 Toni; Resum estadistic
         int suma = 0;
         System.out.println("Vols un resum? 0=NO 1=SI");
 
-        for (int j = 0; j < places.length; j++) {
-            suma = suma + places[j];
+        for (int j = 0; j < families.length; j++) {
+            suma = suma + families[j][1];
         }
         if (avkpacha = scan.hasNextInt()) {
             vols_saber = scan.nextInt();
@@ -451,7 +454,7 @@ public class P4_e2_FortunoR {
             scan.next();
             System.out.println("Adeu!");
 
-        }*/
+        }
 
     }
 
