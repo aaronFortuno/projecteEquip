@@ -205,16 +205,19 @@ public class P4_e2_FortunoR {
                                 opcioCorrecta = false;
                                 System.out.println("Número de telèfon erroni");
                                 //i++;
+                            } else {
+                              comptador++;
                             }
                         } else {
-                            i++;
-                            scan.nextLine();
+                            System.out.println("Ha de ser un número de 9 xifres");
+                            scan.next();
+                            
                         }
+                        i++;
 
                     } while ((!opcioCorrecta) && (i < MAXIM_INTENTS));
 
                 }
-                
 
             }
             //mostrem el resultat
@@ -223,7 +226,7 @@ public class P4_e2_FortunoR {
                 System.out.println(families[q][0] + "    " + families[q][1] + "         " + res_ru + "       " + tipus_hab + "      " + families[q][4]);
             }
           
-            comptador++;
+            
             q++;
             
             System.out.println("Voleu afegir una altre dada? 0:No / 1:Si");
